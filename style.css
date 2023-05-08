@@ -1,0 +1,56 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box
+}
+
+:root{
+  --bg-main:#464646;
+    --bg-card:#2D2728;
+--border-color:#efc745;
+
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5rem;
+  height: 100vh;
+  background: var(--bg-main);
+}
+section div {
+  height: 99px;
+  width: 99px;
+  background: yellow;
+  border: 2px solid white ;
+  border-radius: 9px
+}
+.card{
+  width: 10rem;
+    height: 10rem;
+background: var(--bg-card);
+background-size: contain;
+border-radius: .6rem;
+padding: 2rem;
+}
+h1{
+  color: white;
+  font-family: "Lexend Deca Light";
+  font-size: 4rem;
+  
+}
+span{
+  color: var(--border-color)
+}
+#card-section{
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(3,1fr)
+}
+.card_selected{
+  border:.2rem solid green;
+}
+.card_match{
+  border: .2rem solid purple;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .parent {
+      width: 10rem;
+      height: 10rem;
+      background: yellow;
+      position: relative;
+      border: 1px solid #000;
+      perspective:50rem;
+
+    }
+
+    .parent:hover>.front {
+      transform: rotateY(180deg);
+
+    }
+
+    .parent:hover>.back {
+      transform: rotateY(360deg);
+
+    }
+
+    .parent>div {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      transition: all .5s linear;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      /* background-size: contain; */
+      /* background-repeat: no-repeat; */
+      /* background-position: center center; */
+
+    }
+
+
+    .front {
+      background: red;
+    }
+
+    .back {
+      background: blue;
+      transform: rotateY(180deg);
+
+    }
+
+  </style>
+</head>
+
+<body>
+  <div>
+    <div class="parent">
+      <div class="front card_selected"></div>
+      <div class="back"></div>
+    </div>
+  </div>
+</body>
+
+</html>
