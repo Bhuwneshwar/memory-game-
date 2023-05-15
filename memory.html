@@ -67,6 +67,8 @@
       position: relative;
       transition: all .4s linear;
       transform-style: preserve-3d;
+      perspective: 50rem;
+
     }
 
     .card,
@@ -129,27 +131,27 @@
     let cardsArray = [
       {
         'name': 'CSS',
-        'img': 'http://thapatechnical.online/logos/css.png',
+        'img': './css.png',
         },
       {
         'name': 'HTML',
-        'img': 'http://thapatechnical.online/logos/html5.png',
+        'img': './html5.png',
         },
       {
         'name': 'jQuery',
-        'img': 'http://thapatechnical.online/logos/jquery.png',
+        'img': './jquery.png',
         },
       {
         'name': 'JS',
-        'img': 'http://thapatechnical.online/logos/js.png',
+        'img': './js.png',
         },
       {
         'name': 'Node',
-        'img': 'http://thapatechnical.online/logos/nodejs.png',
+        'img': './nodejs.png',
         },
       {
         'name': 'Python',
-        'img': 'http://thapatechnical.online/logos/python.png',
+        'img': './python.png',
         }
     ];
 
@@ -174,23 +176,28 @@
     // }
     //
     // const shuffledChild = myNumbers(gameCard)
+
     let shuffledChild = Array.from(gameCard).sort(() => 0.5 - Math.random());
 
 
     let clickCount = 0;
     let firstCard = "";
     let secondCard = "";
+    let matchCount = 0;
 
 
     // styling the match card
     const card_matches = () => {
       let card_selected = document.querySelectorAll('.card_selected');
+      matchCount++;
+      if (matchCount === 6) start()
 
       card_selected.forEach((curElem) => {
-        curElem.clas&gggggg&g&gg&_ffsList.add('card_match')
+        curElem.classList.add('card_match')
+
       })
     }
-fff
+
 
     // step 7
 
@@ -223,7 +230,7 @@ fff
         } else {
           secondCard = curCard.parentNode.dataset.name;
           curCard.parentNode.classList.add('card_selected');
-        }  if if if if if if if if if !&&&&&&&&&&
+        }
 
         if (firstCard !== "" && secondCard !== "") {
           if (firstCard === secondCard) {
@@ -245,32 +252,49 @@ fff
     })
 
 
-    // step 1 to add the card
-    for (let i = 0; i < shuffledChild.length; i++) {
 
-      const childDiv = document.createElement('div')
-      childDiv.classList.add('card')
-      childDiv.dataset.name = shuffledChild[i].name;
-      // childDiv.style.backgroundImage = `url(${shuffledChild[i].img})`;
 
-      const front_div = document.createElement('div');
-      front_div.classList.add('front-card')
+    const start = () => {
 
-      const back_div = document.createElement('div');
-      back_div.classList.add('back-card')
+      shuffledChild = Array.from(gameCard).sort(() => 0.5 - Math.random());
 
-      back_div.style.backgroundImage = `url(${shuffledChild[i].img})`;
 
-      parentDiv.appendChild(childDiv)
+      clickCount = 0;
+      firstCard = "";
+      secondCard = "";
+      parentDiv.innerHTML = ""
 
-      childDiv.appendChild(front_div)
-      childDiv.appendChild(back_div)
+      // step 1 to add the card
+      for (let i = 0; i < shuffledChild.length; i++) {
+
+        const childDiv = document.createElement('div')
+        childDiv.classList.add('card')
+        childDiv.dataset.name = shuffledChild[i].name;
+        // childDiv.style.backgroundImage = `url(${shuffledChild[i].img})`;
+
+        const front_div = document.createElement('div');
+        front_div.classList.add('front-card')
+
+        const back_div = document.createElement('div');
+        back_div.classList.add('back-card')
+
+        back_div.style.backgroundImage = `url(${shuffledChild[i].img})`;
+
+        parentDiv.appendChild(childDiv)
+
+        childDiv.appendChild(front_div)
+        childDiv.appendChild(back_div)
+      }
+
     }
+    start()
     const btn = document.getElementById("newGame");
-    btn.addEventListener("click",(e)=>{
+    btn.addEventListener("click", (e) => {
+
+      start()
+
 
     })
-   
   </script>
 </body>
 
